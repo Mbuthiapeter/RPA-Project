@@ -1,0 +1,451 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SaaSAutomation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ContactName" Type="InArgument(x:String)" />
+    <x:Property Name="Email" Type="InArgument(x:String)" />
+    <x:Property Name="Subject" Type="InArgument(x:String)" />
+    <x:Property Name="Succesful" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="Description" Type="InArgument(x:String)" />
+    <x:Property Name="Product" Type="InArgument(x:String)" />
+    <x:Property Name="Account" Type="InArgument(x:String)" />
+    <x:Property Name="Phone" Type="InArgument(x:String)" />
+    <x:Property Name="Channel" Type="InArgument(x:String)" />
+    <x:Property Name="Classifications" Type="InArgument(x:String)" />
+    <x:Property Name="Priority" Type="InArgument(x:String)" />
+    <x:Property Name="Language" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>620,2738</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SaaSAutomation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SaaSAutomation" sap:VirtualizedContainerService.HintSize="706.6666666666666,5113.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" ContinueOnError="False" DisplayName="Use Browser Chrome: (1) Sarah Gumbe" sap:VirtualizedContainerService.HintSize="644.6666666666666,5002.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="610.6666666666666,4783.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="548.6666666666666,4667.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'chrome.exe (2)'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/list/all-cases" CvType="ArrowButton" DesignTimeRectangle="1483, 203, 39, 52" DesignTimeScaleFactor="1.5" ElementType="ArrowButton" FriendlyName="'chrome.exe (2)'" Guid="5169ba58-29eb-44ca-aed7-93c13e282e2c" InformativeScreenshot="56d98ace52f9e9da9dfc2eeac6ed7081.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(2) Sarah Gumbe' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvType="Icon" DesignTimeRectangle="1530, 198, 76, 64" ElementType="Button" FriendlyName="'BUTTON'" FullSelectorArgument="&lt;webctrl aria-label='GlobalSearch' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='GlobalSearch' tag='BUTTON' type='' class='zd_button_tag zd-semanticbutton-buttonReset zd-topbaricon-item' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEwAAABACAYAAACwVZFQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQBSURBVHhe7ZjxS5RJGMf9g0462uyHrrg4CDYyPSNPVlqEM39QrvBIOO+4isAiQS0WD7oEV5bM6u7YiuTM6g7jTosNdJNWpV1WtzU1vPVu9cV1Vb43s+8bdt5Y+0Q7b8Yz8GFh3ndmeD48z+w7k7elYD+Y7MnL31YIJnvyPnLsB5M9LIyIKMkikWpMtrAwIiyMCAsjwsKIsDAiLIwICyPCwoiwMCIsjAgLI8LCiLAwIiyMCAsjwsKI2CysFie9/Rh6voDUEtbayhJSc9MY+v0aTrpV4+zDNmE1viDixpqg5MwzRMIW0QSSK2vP4gE/ahRz2IENwmrhCSRMGUsii/wXUCr6t+x0YXdRNQpdX8NVUYdS13F82/EA4/Pmq6mZR/C8B9mmWVgVmgILpoBYP06XiL5P3HAe+gYVh+s3wIOfgv8gU7FzQTTJMcq59aBVmLMzgpSUFe3NlJhj7xGUCyknLgcQEmVopJZhxAI4+z9pjegaWZTKsDR8Dc518+pEo7B2PEyKiI0RXBRZ4iishfuwF3ejpgjZ0lJY5L5CmMSLgRn5loGHLar59aBNmPNKJCMl3vM98j+tQtkrWWPEB+FrUElah3cUf8sB4RvKNXSgTVjHmAh0JYKukgPYXS6Cvz6BtOhKTwXQrJKjpA2PZsWg1Rg6C9Tr5BpNwqxyjPXBKbLLJYK/GVkWHQkMtKjEbIyZlYsI/lCsWCf3aBLWC1mQyUC72LuOicCvIChrywijSyHltfwhN7JFPPGWK9bJPdqF7TgoA29DX2wxs8ErpbwOS1jo0pdwKNfKLXpLMnoHu75QSCDge2KWZMj3QQurwi9REaf4pOjIZNjb0mh+WqxO4tdDH7SwIlT2TItIgdFbZxQisqRlEC/kJDFRyqVu5Tq5Rpuw/BI/RuT55q9htKlkvJFG659VlOPVeny+94B6nRyjT5igptvMsvlQN+qUUjamWWz2me+2yG+oq/wKu7ar18g1WoXlbzsl9jKZZmnMDd/GCYUYFc09E+JAJIeJveu7ehzcV6qYWw+ahQlKmtAdNm8L07Nh3PV6lJIyNNzAQNw6a66aP8b4PRxVzasJ/cIy1MLz57R5ZSPbfAKTT0cx0D9oMjyBycQrh/LZUfzc4EXvuHnjmBzrtu1C0SZhFu4L8A9NYUFuTuvb6jKMqTD6LosMrKxDcWEZPhYl3TVm3qfZJc1eYS8pKIaj+jzOtvrQ+mMnWs+ds25dq/HZnjJs/c8Gb6+090MYGfukbVJhklPoeGxJC/lRqXzn3bOJhUksaeLI5VE+f/dscmH6YWFEWBgRFkaEhRFhYURYGBEWRoSFEWFhRFgYERZGhIURYWFEWBgRFkaEhRFhYURYGIki/AvEnKwX8L6jHQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'Ticket'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/list/all-cases" CvTextArgument="Ticket" CvType="Text" DesignTimeRectangle="1221, 349, 235, 22" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Ticket'" FullSelectorArgument="&lt;webctrl aaname='Ticket' parentid='react' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Ticket' parentid='react' tag='DIV' type='' class='zd-allmoduleformshortcut-moduleText zd4af66c9aeb zd050393fdda zdd6f24eb601 zd577c9fa95f' check:innerText='Ticket' /&gt;" Guid="b7908bb6-a053-457c-8468-9d0b34db07cd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO8AAAAaCAYAAABfLwsTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOFSURBVHhe7ZrPK21RFMfvP2BiZmQkGchAMjBRJJlgIBOSJJEJM8qACSOJkqFCSoYmRG4RkkIKMSAhRYoQ+bFe3+Xs887d3fv8eEfvnXO/nzrprrPvuiafs/da60SEEBJIKC8hAYXyEhJQKC8hAYXyEhJQ/pm8PT09EolEZHl52YkQQr6CK+/4+LjK9NEF6cDo6KikpaXJ1NSUfv4qPyXv+fm5zMzMyNPTkxMhJJy48h4fH8vi4qJ7DQ8Pq1yNjY0x8d3dXXl7e5OBgQG9PzQ05GT4Gj8h7/7+vuTk5EhTU5M8PDw4UULCScJjM6Ty7rQ2r6+vcnt7qyJ/B8pLyN/xbXkT8fj4KNPT01JUVKTfT01Nlfr6ellbW4sRPZ68FxcXUl5eLvn5+bKzs+NERe7u7vQkgDi+k56eLm1tbXJycuKs+J3Pe0FkCE1IGPm2vKZGxl8DJGtpaZGUlBRpbW2Vubk5rY3z8vI0NjEx4Qpsy4tdvLm5WcWMRqMaA1dXV1JXV6cPge7ubpmfn5f+/n7JzMxUmQ8ODnQdjvP4XzIyMqSiokJmZ2dlaWlJ8xISRnyT11sHj4yM6LHacHp6qjtqVlaWbG9va8wrr5Ee4i4sLLiCm5y2+ACyYmft6uqSl5cXjfHYTJIJ3+S9vLyU0tJSKS4u1o6vzerqqqysrLhSG3mxy/b19cUV1OSsrKyU6+trJ/oOusk4OhcWFsrZ2ZnGKC9JJnyTd29vT7Kzs1Woz4xpjLw1NTUqLgR+fn527r5jcpaUlEhvb6+u8V5lZWV6TDa7OeUlyYRv8n603sbIi1mxXecaTE7UtxA40bWxsaHrKS9JJnyTF7sfdsGOjg63Bv0TRl685GE6zKhjvZicn30gUF6STPhe88arTwEaUe3t7e54x8iL34G0kBcSY1xkMDlra2vjdo3v7+9jGmOUlyQTvsnr7TaPjY3FNJ7M/LagoECOjo405pUX4NiM4zO6zug+g4+6zRAeNTPGSeDw8FByc3MTyk5ImPBNXgBJq6qqVDZ7zos57eTkpCugLS/iENRuXnnnvJ2dnZoToyjUwXatfHNzI9XV1ZoDawcHB905MCFhw1d5Qby3oRoaGmRraytm57TlBRAW4kI+vDNtBLZzmre27Jxgc3PTfYDgt9fX1507hISLhPISQv5vKC8hAYXyEhJQKC8hAYXyEhJQKC8hgUTkFzNFVGD7erA+AAAAAElFTkSuQmCC" InformativeScreenshot="738eedcc0192708c2fbe470fd6f1d277.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(2) Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="ADD NEW" CvType="Text" DesignTimeRectangle="1217, 291, 85, 16" ElementType="Text" FriendlyName="'ADD NEW'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Contact Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[ContactName]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="116, 496, 356, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_10'" FullSelectorArgument="&lt;webctrl id='ZD_10' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_10' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Contact Name' /&gt;" Guid="c67e512c-746f-4ade-b7f9-8833e1fd28a8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWgAAAAuCAYAAAAFk4MQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADMSURBVHhe7dgxDcBAEAPBq0M3sB/ERUrxGLaYkUxhC88CkCTQAFECDRAl0ABRAg0QJdAAUQINECXQAFECDRAl0ABRAg0QdQM9M/8AaBBogCiBBogSaIAogQaIEmiAKIEGiBJogCiBBogSaIAogQaIEmiAKIEGiBJogCiBBogSaIAogQaIEmiAKIEGiBJogCiBBogSaIAogQaIEmiAKEUGiBJogCiBBogSaIAogQaIEmiAKIEGiBJogKgb6Oc9ZmYWmkCbmUXn4gBI2v0AavXP2f3by9IAAAAASUVORK5CYII=" InformativeScreenshot="7ad6b5c0ebcb9ded511a395da8f78650.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(1) Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Contact Name *" CvType="Text" DesignTimeRectangle="116, 462, 154, 27" ElementType="Text" FriendlyName="'Contact Name'" FullSelectorArgument="&lt;webctrl id='878804000000000391' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='878804000000000391' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-mandatory zd-label-font_default zd-label-pointer zd-fields-fieldLabel zd-fields-labelMandatory' aaname='Contact Name' check:innerText='Contact Name' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Email]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="116, 624, 390, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_12'" FullSelectorArgument="&lt;webctrl id='ZD_12' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_12' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Email' /&gt;" Guid="8fd80027-badb-4bc8-ace4-776c573ff23f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYoAAAAuCAYAAAA2hF5cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADGSURBVHhe7dixCcAwEARB99+fQscu4xVJkdkKZuBqWLhnACAIBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQDphmK9n5mZ2d0hFGZm9rvD9QRAEgoAwswGV230ifNjTm4AAAAASUVORK5CYII=" InformativeScreenshot="eb1a632a286d401ef14e2730d064159a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(1) Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Email" CvType="Text" DesignTimeRectangle="116, 589, 53, 27" ElementType="Text" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl id='878804000000000393' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='878804000000000393' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-pointer zd-fields-fieldLabel' aaname='Email' check:innerText='Email' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADkAAAAfCAYAAABd7WWuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJLSURBVFhH7Zaxa9tAFIf1Z2g1ZDFkaLZo9EEXQxaDF4OHoiloCqKT6RJEhiAyFE/BdCgog8EeAsomLwV1KGgpJIPBGTJoyKChg4YOv96dnh3ZsRLayK170Qdv0N3p7n3S3ZM0vAIqSVWoJFVBPck4hDeMkNKlYFnyzkNL06A9GTqcbzR+25jn3x0hpibBekm9CfvUhVsQ/pTG/0OSKws1/sDZWUQtnN+TdJC7dSuJhx3oPNfakY+E2pSTFKRJ/uRxNiMZwz9iYG9tvoUjDA6bqOv8fq0Go23Du6Ek4gDuO0Z9OuoHNkbTlQSJeNKH1c6NbZhwxtdLhaSQTUl67SwZnSel7zKY73uwDupyK2maAWc4QKegr/+dppGkCE9YtgX3udiFj2Dch9nQ+VgNxslyxcRXR7brvH3BZiX5Yg0H4Q9q5iRXNsk80XeYO083fTAxtuth9pPaJBHcfTFPC94tNQleLFkUj+Qf3mRvsrqheHJvnuvrIcgJpXcRru/pIkd0tifXN8eLR1LGmyz6hPiY0dCMuWQHo/yskj/te0x80ZJCnWFu8N/frmVJprzwDGDzIsV2s7OYDwUkZ/C6QkxUXwuuKDyTQMboA5NC/71kcmnJpI3j8KEYEcps1/BYXK//L56dK/Im5xXUulx5j7ee/M6WL6k1Ya2trhSf5x/m8iQxHaAp1uaV3RnTWfxogokfCT0rQiVLPhOLSUqU5CRfXLR2aA0ROwbM0wDhpzLP5JaQJgmS1Z/vF7CVkmVTSapCJakKlaQqvAJJ4Bd1LriAe15IHQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Subject'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Subject]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="116, 751, 975, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_14'" FullSelectorArgument="&lt;webctrl id='ZD_14' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_14' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Subject' /&gt;" Guid="ecc643d4-7412-4c27-adb7-36f4d86050d7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA9MAAAAuCAYAAAAr6UofAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAE9SURBVHhe7dqxDYAwEARB+u+PkNhlPJEJkTefka6Ile4aAAAAIBHTAAAAEIlpAAAAiMQ0AAAARGIaAAAAIjENAAAAkZgGAACASEwDAABAJKYBAAAgEtMAAAAQiWkAAACIxDQAAABEYhoAAAAiMQ0AAACRmAYAAIBITAMAAEAkpgEAACAS0wAAABCJaQAAAIjENAAAAERiGgAAACIxDQAAAJGYBgAAgEhMAwAAQCSmAQAAIBLTAAAAEIlpAAAAiMQ0AAAARGIaAAAAIjENAAAAkZgGAACASEwDAABAJKYBAAAgEtMAAAAQiWkAAACIxDQAAABEYhoAAAAiMQ0AAACRmAYAAIBITAMAAEAkpgEAACAS0wAAABCJaQAAAIi+mL6fZWZmZmZmZmY/28S0mZmZmZmZ2eE2N28AAABIZl60hxeHm5P6fwAAAABJRU5ErkJggg==" InformativeScreenshot="65283ebb54d72c2dd3db5a7df779b0d8.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(1) Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="116, 717, 88, 27" ElementType="Text" FriendlyName="'Subject'" FullSelectorArgument="&lt;webctrl id='Subject' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Subject' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-mandatory zd-label-font_default zd-label-cursor zd-fields-fieldLabel zd-fields-labelMandatory' aaname='Subject' check:innerText='Subject' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAfCAYAAABqI6qaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAVrSURBVGhD7VhLSyNZFJ4/5cpFoEEQhHGVlSJ0r0YQWoQWFwGh3YgrEVqyaGwQNy1Ck0BDFuKAOBCIIDggEaQrr9JULDtaPjCZhG/Oqbo31isxllqtTT64aE7de+rer87z/oEeQkWP8JDRIzxk9AgPGT3CQ0aP8JDhS3jTyEJbmoYSfYMffX34MRBFbnYNui4mPAZaAjnWOZXClRD9PtBRft/5bB7Cm8cJ5CMWyfn5dVTSKZzMj1vE90VR+rcmZgZEEMIbWagj/bSnGCpP8dG7RUPHWXIRpb/veWmjhnqD/3ERTjJTbIOLcBUnb2lBZBwnR0IkcHuwYhEVmUPFEMIgCEJ4LYPiAL971LOv58RlctI0tPz3zoRfp6Zpb4PIL62gMEb7HFuAukRryXCLaaeBOglX1qEwGR+3cCNEdpx/fUcb6KcNqEISAEFDClnRzbX4PyR0S3hDy+I0uYbi1KCIBG+gfCDSkzuoamKSgJPwvUVrQXxfCFyo7kNL60436bhGuFjfJDS5Zzvh5LL6agw5mSuGRimMJfDzIcSyjo0F5EfEYUW+OT1uE/rk/LGoNZ8sU/mwiPKB3W33UeJn7hFZxpmY4UUNZ3HSOcBnYaP0/0j+Fv5XAl1HjaCEj00iH6W/Q5MobqSgbydQio2Kg9F8h2X46GFcKziZothOFpWbXUZ5O4MKkZnj8OOXb66JSH5na/4OysL1maTcahZ1c6KKSnyZLHaY5H3mBynR71J8Cxfmcy9uiQeFdWxkLeLb5Dsn4ZyczA3Rwi9Z3ApxRwQlnMdMAheurGIIN3Z+dD/ChUURefmk6vC6prGDApMYXUNVyEgzKjHr43BIbAopo6nvoGiee9hBUrchhXH1DxE+Qh7Ay68p54yMo7SrO97DcCVNoE5WblYpfGhZqewpuGrn5kEJp8RcLgiZAwa0GV4ThdpKkD56jC0UWM/bdZy7SwHC+Vf2lmGoh0JwtNbyXj8rvU0vWqWvzbMeQni38BDOaNZUKoeWUZgQcU4Odv9NRbidQFDC3ydwKURuyIPmknKRjx753k8Z3FQN79heMJ9Lsq6+u3Xej9AId4Cqg1tNwSklN0VYfm7DVqUEJdx3voBHp1ePJOPeIXScLfHvfgoZ5s+u8GsIt4GbIisc2LL1LyY892kLejrTfhxZmeBFEt6okiVTxVBtU1F1dO2HEt6hDpfuf3dQr57mrvVeZVWxBPegRV6qDXmtbvEOz0x4DafznMU7xDmuYv6kg0cWoMuPcrjSapY8VU2DyjAzDPkQbpc5QPv4yM+7TJptStj64Ra0I5vlyH3G/Ju6eppjPlUwGwr+E7Jnt/AmVSgWGVRD7nnN/OIbb6Afyuf9u8TJbbcgtezqqlolni/hNKaILJdVWfUsP0vZkqoP4a2y0NtkNI2MqLdHoR7Ic0gdwyhstpkfofmyqiFIT1OoRH4qeGK4sTlnHZiJjVnNhNm2TohucIbKMFeJWP0iqhnacD6ewGlqHUVuYiK0pp2FR99ZDcrAuNX42C/JBqahHYv5JvwIJ7QaHxpT1C06Gh9qbsgw7F7XPE4hbz67O1uFO13znmaQPpyzPkdBGiDpmqdGiNr1x16e+SbNhpaBOjsOZcgKMfxCZSIGdVvBjU/Na7bLn8kaZP3Og0rI0u6+lyhbDL90XwNH6YMtUQ7xxIg2hDMaBqqpxbtWnXoHvsc4cV9BCJhXz3EiWV4FDI2aXad2aHiaFIaxTbolD9G55yE8MLiE5BrYqPluPjg6EP7K8LSEPxdayfqRV8MvAC+e8PphimKnCBdUCYV8Q/vkePGEm6UZx9n5hCdZv0a8jpDyG6FHeMjoER4yeoSHjB7hoQL4H+H7/ERw/iAYAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Account Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Account]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="701, 496, 356, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_32'" FullSelectorArgument="&lt;webctrl id='ZD_32' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_32' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Account Name' /&gt;" Guid="6cce92f7-bcb4-4cfc-84bf-8463be96a5b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWgAAAAuCAYAAAAFk4MQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADDSURBVHhe7dQxEQAgEMAwZuwi+0XAhoYOyV0tdF0AkgwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIMqgAaIMGiDKoAGiDBogyqABogwaIOoPep+RJIUyaElKNvcBXQRfWDW3oagAAAAASUVORK5CYII=" InformativeScreenshot="2a5edf7a9f03a0e63dab69510364293c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="701, 462, 146, 27" ElementType="Text" FriendlyName="'Account Name'" FullSelectorArgument="&lt;webctrl id='878804000000000433' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='878804000000000433' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-pointer zd-fields-fieldLabel' aaname='Account Name' check:innerText='Account Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJYAAAAfCAYAAAAFvjTyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABzSURBVHhe7dUxDQAxEAPBr0P3YQfEpQuCbDcjmcFK/gYCwiIhLBLCIiEsEsIiISwSwiIhLBLCInHDWv82ezZhWTJXSEJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERWDmACV+jysYr9q6AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Phone'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Phone]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="701, 624, 390, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_34'" FullSelectorArgument="&lt;webctrl id='ZD_34' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_34' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Phone' /&gt;" Guid="30a70f68-343d-494a-9e03-95aaa6e43836" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYoAAAAuCAYAAAA2hF5cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADGSURBVHhe7dixCcAwEARB99+fQscu4xVJkdkKZuBqWLhnACAIBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQDphmK9n5mZ2d0hFGZm9rvD9QRAEgoAwswGV230ifNjTm4AAAAASUVORK5CYII=" InformativeScreenshot="b2223d8feb12eca5c7b8baa613822f68.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Phone" CvType="Text" DesignTimeRectangle="701, 589, 63, 27" ElementType="Text" FriendlyName="'Phone'" FullSelectorArgument="&lt;webctrl id='878804000000000395' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='878804000000000395' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-pointer zd-fields-fieldLabel' aaname='Phone' check:innerText='Phone' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAfCAYAAAC8hnD/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAANlSURBVGhD7Zi9a9tAGIf1Z2gVeGjAQ7NZYwQZIuhi8FBDBqMpeCoik/ESRIciOhRPxXizh4C9yUNAWQrOEPAS8BJIhw4aNWTwkOHX90539kmWkyht0xbrgVtene7j0d17Z2soWVHKUChlKJQyFEoZCqUMhbSMH0PUNQ3aRjFgHjrwRnPEoqpkdsae6/CuReA/Jl+GbsP95MOXpduGXdW5GP3Ax3wp6hM7IMPDXITWxAi7+1zI/sf10x2VQcjnFVodIrS7MjCDx55rTYwjEZEyrmIsRi7qNYOvHq1iwjkLcZdUy4HqT3y0Gxb29KS+1WijdykaVokCuIcWrNMAURSid2In71A/xhG9Q31vI/7Wh9sSfbDcx/q4iKDs9BXFZCxDuPy5k5GhwayZFN+D1XKTHFNJ4vrxGBvTu5/Df8dyEA2O6vcnIYKRD+cgyUtGK/OOHNdbEyZNSq9acE59mqQJg8XpY7SnWSFLLL42obP2SJg/ChBOSEwj+VgmbfWskEIylhcub1yr9bAQMSlDqzgYfhdBzh2Gx8nkOpcixIkRnCQinPPsuompPZLKBvtF9kDIcdGkrW6YOtGWVx7MzJgYy+skbrSGuHsQQQ71f8r6N9G7ESHB82QsaUlPPdhiqTmT9XeTMuxBzoaggXJ5ZzMRIG77sCmWu2IYtPo6rB+9g5mcxGpcLsJ7EVsRYdhgY6hj+EOEuHAWs9G/FSEVGoNF7e1/Tn/yfBlbil614U3TU3g0gcr2lIlH503eVn2Uq4Iz67I2DfiyzZx2VDbHIHLbGw9hHCPeKAE6Oe1tWRlt2sd9+IMxwsuQygyLKM5NOkVlPFpfEI3qXFjzXLxVVIas/1TJ7IBiCTSHf1rGkYcx/5jbyiKVf15dhtwmq4nm8Du2Cd8GmaT6FK8uAze9JPufBKmvskIm0AolULkvC8uQCZSSauqEEyznCCaLXzta8ygsgw+UHW16zuqQR6uOuno6FZaxPlo3T6318W096zT5ozKIe8r2teS9vfcehlP10kV3iQ9B+ub6AhmkY3Xp0qtN+sWdvnQZRz5mmWP678hgPEQIBy6cw+QWyW6V7Pbaz7uOv0hGQnwzhkfXcZPfiJO/ItxBiCh1EUtIy9hxShkKpQyFUoZCKUOhlKFQylAoZSiUMlYAPwExa0qnhud2VgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486.6666666666667,413.3333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,333.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Description'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Description]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="116, 579, 975, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'TEXTAREA'" FullSelectorArgument="&lt;webctrl tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TEXTAREA' type='' class='zd-textarea-container zd-textarea-basic zd-textarea-varClass zd-textarea-xsmall zd-textarea-primary zd87dba7e566 zd266b1e491d zd-textarea-needBorder zd-textarea-noresize zd7d162e417f zd-textarea-effect zd-textarea-borderColor_default' aaname='' /&gt;" Guid="f79640fa-257e-4304-a7f4-107b25135627" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA9MAAAAuCAYAAAAr6UofAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAE4SURBVHhe7dmhDcAwEARB999foHHK+KAYWlo+I10Rq1sDAAAAJGIaAAAAIjENAAAAkZgGAACASEwDAABAJKYBAAAgEtMAAAAQiWkAAACIxDQAAABEYhoAAAAiMQ0AAACRmAYAAIBITAMAAEAkpgEAACAS0wAAABCJaQAAAIjENAAAAERiGgAAACIxDQAAAJGYBgAAgEhMAwAAQCSmAQAAIBLTAAAAEIlpAAAAiMQ0AAAARGIaAAAAIjENAAAAkZgGAACASEwDAABAJKYBAAAgEtMAAAAQiWkAAACIxDQAAABEYhoAAAAiMQ0AAACRmAYAAIBITAMAAEAkpgEAACAS0wAAABCJaQAAAIjENAAAAERiGgAAACIxDQAAANGJ6We/ZmZmZmZmZnbZzzMNAAAAkZgGAACAZOYD4x2UcraBFZQAAAAASUVORK5CYII=" InformativeScreenshot="e81c8392d6e6c5443027182472e2fad6.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target CvTextArgument="Description" CvType="Text" DesignTimeRectangle="116, 544, 975, 27" ElementType="Text" FriendlyName="'Description'" FullSelectorArgument="&lt;webctrl aaname='Description' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Description' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-pointer zd-fields-fieldLabel' check:innerText='Description' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Product Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="486.6666666666667,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Text="[Product]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvType="InputBox" DesignTimeRectangle="116, 834, 390, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT ZD_39'" FullSelectorArgument="&lt;webctrl id='ZD_39' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_39' tag='INPUT' type='text' class='zd_input_tag zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Product Name' /&gt;" Guid="fe63309c-3a12-4648-b06c-cec338302f1d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYoAAAAuCAYAAAA2hF5cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADGSURBVHhe7dixCcAwEARB99+fQscu4xVJkdkKZuBqWLhnACAIBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQBJKABIQgFAEgoAklAAkIQCgCQUACShACAJBQDphmK9n5mZ2d0hFGZm9rvD9QRAEgoAwswGV230ifNjTm4AAAAASUVORK5CYII=" InformativeScreenshot="2cd54735f182f9e7f68192157cb64e71.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Product Name" CvType="Text" DesignTimeRectangle="116, 799, 140, 27" ElementType="Text" FriendlyName="'Product Name'" FullSelectorArgument="&lt;webctrl id='878804000000000403' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='878804000000000403' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-pointer zd-fields-fieldLabel' aaname='Product Name' check:innerText='Product Name' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NSelectItem DisplayName="Select Item 'Channel'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[Channel]" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="8">
+                    <x:String>Phone</x:String>
+                    <x:String>Twitter</x:String>
+                    <x:String>Email</x:String>
+                    <x:String>Facebook</x:String>
+                    <x:String>Web</x:String>
+                    <x:String>Chat</x:String>
+                    <x:String>Forums</x:String>
+                    <x:String>Feedback Widget</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvElementArea="113, 538, 396, 43" CvTextArea="115, 547, 64, 21" CvTextArgument="Phone" CvType="InputBox" DesignTimeRectangle="116, 539, 365, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'Phone'" FullSelectorArgument="&lt;webctrl id='ZD_44' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_44' tag='INPUT' type='text' class='zd_input_tag zd-textbox-pointer zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Channel' /&gt;" Guid="5636990d-7738-49ce-9041-2f456ebfcc3e" InformativeScreenshot="ceec3a5b7a57d0a0f859a2f603c89e74.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Channel" CvType="Text" DesignTimeRectangle="116, 505, 82, 27" ElementType="Text" FriendlyName="'Channel'" FullSelectorArgument="&lt;webctrl id='ZD_44' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_44' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-cursor zd-fields-fieldLabel' aaname='Channel' check:innerText='Channel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAfCAYAAAB9ATpTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAARjSURBVGhD7Zi/a9taFMf1Z2g1eHiGDPFmjRVkiKGLIIuhQ/AURIciPBSTxYgORbwheCommzIUnOGBMhTUpeAOAXcIeCk4QwYNGTRk0JDh23OkK1u/kkqvVfJ+6AsafO7Vufd+dO8551pCo1rUgK1JDdia1ICtSQ3YmtSA/WX5WF/M4FyLn0KPgOUXptAPVHRkCZIkQd5RoR1NyUkg+qS1mHA/GealMPwP9NCai8Heuhi/kEOYrZ4G/diC9d7C+KiPFtnYkXrsEvq0GrBb5cHeLWD2uHML2skyBw/+CrNXEXTl3RLJvduA3SoDNoA7Ymi0I98tUtDSWmO2zw67KYcN2K3SYL/P0OejLhtw74TtIX2zoO7rmH7d7unNIGRbnRnQei36Tba2guHEpc9RIDoB88kQaqIvx/HFrWjfyIPzRoW6Z8C58eCe6OjvRCdHavehnyzyp8tzYOzROyMHnudiSqEszhetzNyz8r/MYBzG+aUF5YD6f/Jym60U2PVpPxxUfus+slsfVjQIhYieQh+nA/XQgHVMANqRXX41JzwJXc8x5Dbq2yeY888O7IkWxXF5gPmN6BfKg33Afrrkn4DG/kdDKLH/104a7o0NjX3tKlAIECff4cgiYMomV+gXWbgBVh8GkKmd4VtnDtxzgnwQffiy4S8BlsNANMHBx9TySysGK7WHsFPlxxq2iMvjz8JE4zlv2KbA/JJenP+XHi5MPl4ICysGS/YXY7jJHb3JCwqmV8LGisHSwrPJNvhqQuG23hQrYWMFl5G9dWhjfS+MoXw4YZhMj1ECbDxxPsrCVFEx2P5pwaGnhTAsaZKAdU8h49s6fzp8Bzr3bVtYClNyfsan/HnyzrRwbO0ssSlisIWhLfanwd6cDIJ3xLY+Zt+FKSkKlSr56/65nVUFsNIvgs0PEipeZDYcFIp2YAjELABLIaLIAX24cDfTUd3oJ2Pm5yvG/cOE6/vwc4+DccZfCbC/KxRUBHu7xPy9Dm0vjnuJ56nBxv1/9iTmVQIsRcIPavQiJa8yCjLHqyrYTZzjqmE0o+Tlwg2fKYaZBTwp2H0zMZeiZ7WJ16XAcgnVZceSDiebLLMSpVknUUFUA7uEtUu/KfunEx3r+UJBeNQzCe0xlQMbBu8oe3cpyTxccoksL6uwLre9KoF9bNGBC4PbnhxsnLwooeU+NilYwjlfpbiUBEu6tjEIi+J8iRLKp532kuFTe+Z2VglsnPl3k5mfFZAfqoOfBSyNLsqtXM1NJOJ5qdWqgoQIbli4h4vrYEBFNf8Jsyms2XaSLpRZlcDS2+7b6HQor2dwOHZd2DC5EJflqDR7BrA8r/iCIO8MYGYuCK19C4tEbqkGlkU15vLcyv1tyEnGvSkOEtXAku5WsOmaGkIMHxmdlwbsK1HWPAvYSP7VHCZdaaNbHV1p94YwTl14qUvD3wH7lLoPojqx+Hv9K/XPAPsfVAO2JjVga1IDtiY1YGtSA7YmNWBrUgO2FgE/AP/BiZ6RLTuPAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NSelectItem DisplayName="Select Item 'Classifications'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[Classifications]" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="5">
+                    <x:String>-None-</x:String>
+                    <x:String>Question</x:String>
+                    <x:String>Problem</x:String>
+                    <x:String>Feature</x:String>
+                    <x:String>Others</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvElementArea="112, 667, 397, 41" CvTextArea="114, 675, 70, 21" CvTextArgument="Others" CvType="InputBox" DesignTimeRectangle="116, 667, 365, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'Others'" FullSelectorArgument="&lt;webctrl id='ZD_50' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_50' tag='INPUT' type='text' class='zd_input_tag zd-textbox-pointer zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Classifications' /&gt;" Guid="20bcb603-c556-44ee-8aaf-2dde1da51782" InformativeScreenshot="3896b564a2d6e006cabd8e34a2c6465e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Classifications" CvType="Text" DesignTimeRectangle="116, 632, 141, 27" ElementType="Text" FriendlyName="'Classifications'" FullSelectorArgument="&lt;webctrl id='ZD_50' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_50' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-cursor zd-fields-fieldLabel' aaname='Classifications' check:innerText='Classifications' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NSelectItem DisplayName="Select Item 'Priority'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="[Priority]" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="4">
+                    <x:String>-None-</x:String>
+                    <x:String>High</x:String>
+                    <x:String>Medium</x:String>
+                    <x:String>Low</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvElementArea="697, 408, 395, 46" CvTextArea="699, 420, 84, 21" CvTextArgument="Medium" CvType="InputBox" DesignTimeRectangle="701, 412, 365, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'Medium'" FullSelectorArgument="&lt;webctrl id='ZD_41' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_41' tag='INPUT' type='text' class='zd_input_tag zd-textbox-pointer zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Priority' /&gt;" Guid="488bbfc6-f305-4f29-9dd5-7080e5e93e17" InformativeScreenshot="eb7e14c702ae19853f9d49b0b1e1f537.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Priority" CvType="Text" DesignTimeRectangle="701, 377, 70, 27" ElementType="Text" FriendlyName="'Priority'" FullSelectorArgument="&lt;webctrl id='ZD_41' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_41' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-cursor zd-fields-fieldLabel' aaname='Priority' check:innerText='Priority' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAfCAYAAABAk1s1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPHSURBVGhD7Zi/a9tAFMf1Z2g1eAlkqDdrtCFDDR1q6GLIEESHIDqZDsVkCaKDERmCR+Gh4GzKELCHgrMElCFgD4EsBWfo4CGDhg4aMnz77nRn66cjm6SmWB8Q8Z3u7t197927pygoyEUhVE4KoXJSCJWTQqicFELlJCrU7wGaigIl8ZSgHegwLybwRNNdI10otYF214IlnxMDjX2Vi6bWLEx80f5FPAy/lGi8Oqw7UfUmTNCr0fzKOoZzUcXxMBv1YPQnorw5GUKZZDqOh/FJhYtV+Z7X8BzOIRO4hPboDX3Rn8CssnnX0bsXdYxbM9jc3PPNZg2hCPm+TF4lqpL48Lywy1H5j/j5qsTsPFM57ulbEwouTPZeacERLu6esrIK89bD5LyFPXVV/xjzMeyvOupVOp40xl6tDv3UwUOK861nZ47BJ9Y+/oh5Ty1UWPnjALOgQwTvUufttbPl6OsJ5Y/R5u/1mFA0aFWjv0HQb3eHiwksFhiLUbMrAxr1U/cbMLoDDK8dEq2JEh+fxbSoe6y2I4WRG+jB7VNsPW7wPuqHtoi3Nly+CRNY71h7LXpUOXKsBuxfoopYSyj/Zxsqe1/t4UHUyQUoagv2fdIVUoWiHeUi1Uy48WP5OECLe4uBYWi41XbiQglWHL1ZPxCxEvIazi8bDdYn5m35hPI9PIxMNNgCaDf1y+VsFjsdNyhICuVj/I0FeI3q0q9PuYjmj+VUV9tZXyg8OdD5Wjtwn0UdEdhWYVxFNyNdqIyHHRNzFJ5JSIhbUREjKRTdUCK+uKImAXkVn8eRs8jbVtvZQKjFhikwRnLDZrAP2NzIm59ElSDDowzYlzasvoPx9ZgeFw9zj4ZOkhQiSuK9tHHo0PKyEJdGyLNX29lEKEIG9eNhsCGiXDpxE2tdL5in8F8LRaMHQb2JwSOVuixPLKFzk3SJfy8UjSyPXqYNcfRUOnpy3W8j1DIeame9YF7V9BxxC0KxzxoWGyqwpqIqhgyoyWD++kItgrp4tHN5n0fZglCESA+UKtmJe7lMD8odjEOpw0ZC3ZlBOiNjUCrLoK6odARDuVOY7QhFzC5awSLKlHCes0sjlHCWm+hNowpuJBQlyB2e0qiof+6gc9yiccW7MDcdakOetyJubk0ohnfvUPbcRJ3/Z4Jl203K0l/4hFlHKMKf2jDes08kEmKfPppT+gdBPJk7hYkKtZPQDSuOupuW/wh2Xij/usNDQFruFGbHhfLgHLEjq2XewJLdFkrG5NBHfhZFjMpJIVROCqFyUgiVk0KoXAB/ARxQWz1qRNIuAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NSelectItem DisplayName="Select Item 'Language'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="[Language]" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="50">
+                    <x:String>-None-</x:String>
+                    <x:String>Abkhazian</x:String>
+                    <x:String>Afar</x:String>
+                    <x:String>Afrikaans</x:String>
+                    <x:String>Akan</x:String>
+                    <x:String>Albanian</x:String>
+                    <x:String>Amharic</x:String>
+                    <x:String>Arabic</x:String>
+                    <x:String>Aragonese</x:String>
+                    <x:String>Armenian</x:String>
+                    <x:String>Assamese</x:String>
+                    <x:String>Asturian</x:String>
+                    <x:String>Avaric</x:String>
+                    <x:String>Avestan</x:String>
+                    <x:String>Aymara</x:String>
+                    <x:String>Azerbaijani</x:String>
+                    <x:String>Bambara</x:String>
+                    <x:String>Bashkir</x:String>
+                    <x:String>Basque</x:String>
+                    <x:String>Belarusian</x:String>
+                    <x:String>Bengali</x:String>
+                    <x:String>Bihari</x:String>
+                    <x:String>Bislama</x:String>
+                    <x:String>Bosnian</x:String>
+                    <x:String>Breton</x:String>
+                    <x:String>Bulgarian</x:String>
+                    <x:String>Burmese</x:String>
+                    <x:String>Catalan</x:String>
+                    <x:String>Cebuano</x:String>
+                    <x:String>Chamorro</x:String>
+                    <x:String>Chechen</x:String>
+                    <x:String>Chichewa</x:String>
+                    <x:String>Chinese (Simplified)</x:String>
+                    <x:String>Chinese (Traditional)</x:String>
+                    <x:String>Church Slavic</x:String>
+                    <x:String>Chuvash</x:String>
+                    <x:String>Cornish</x:String>
+                    <x:String>Corsican</x:String>
+                    <x:String>Cree</x:String>
+                    <x:String>Croatian</x:String>
+                    <x:String>Czech</x:String>
+                    <x:String>Danish</x:String>
+                    <x:String>Divehi</x:String>
+                    <x:String>Dutch</x:String>
+                    <x:String>Dzongkha</x:String>
+                    <x:String>English</x:String>
+                    <x:String>Esperanto</x:String>
+                    <x:String>Estonian</x:String>
+                    <x:String>Ewe</x:String>
+                    <x:String>Faroese</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvTextArgument="English" CvType="Text" DesignTimeRectangle="701, 539, 365, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'English'" FullSelectorArgument="&lt;webctrl id='ZD_47' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_47' tag='INPUT' type='text' class='zd_input_tag zd-textbox-pointer zd-textbox-container zd-textbox-basic zd-textbox-varClass zd-textbox-xmedium zd-textbox-primary zd266b1e491d zd-textbox-effect zd-textbox-borderColor_default' aaname='Language' /&gt;" Guid="0f6961b7-a0fc-44c7-acc6-c7bda0f49ac0" InformativeScreenshot="906b1831340560ce6735269773274ca5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Language" CvType="Text" DesignTimeRectangle="701, 505, 98, 27" ElementType="Text" FriendlyName="'Language'" FullSelectorArgument="&lt;webctrl id='ZD_47' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ZD_47' tag='LABEL' type='' class='zd-label-label zd-label-varClass zd-label-title zd-label-medium zd-labelcolors-default zd-label-font_default zd-label-cursor zd-fields-fieldLabel' aaname='Language' check:innerText='Language' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAfCAYAAAAV8rhrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAUySURBVGhD7Vi/a9xIFN4/Q+3CNgYXcbcqvZDCCylO4CILKYxwYcQVx+IiLG6McBFECrOkOBYXBm0R0BYBuQjIjUEpAkoRWBeGdeFChQsVLlS4+O7NaLTWL+e8kuMTnD6YZvRm5r33zbwfaqFBLdEQU1M0xNQUDTE1RUNMTdEQU1OkibkxobRaaEk6PDHV4L9BQ0xN0RBTUzTE1BSVifHPx9C2e1iTaF1LwtqmCn02Ryi+L/F9jN7rHvqfPAQ/Leg7MtrsLLbmrQ77KrdCIIB3OoTabZMsyXdkKHtjuLeAd9yjPfsY/xCiBH+qcLnBZ1/MJOFCL7QvwHymQ30d69SGvK1hfBGI71msplOM8NKCsadA7gi7ma+m5A/xPYkKxIRwj3qQSL7dZQfYcGZjqJsSV1Y+8tLkfNMjI7oyZL5GgXYwgvZmje/RaskY/xSyMcIFJu+i/SJ5A8aBhj4zTBpgsB0ZqH8X8oTViVnA2mEOJke9ITJmDuypDkU4L7dPCZ0Ygq8jbre0PsDwxIJzZsLYjfwnvbOQ1bY8MZf0AvimJhb3Yo7Dg9Flyikwr8UUQ0wM3Ub1JP2iFtNBRM6fdmI+hHckcyN7Bzb85Bn3C5jCOVWJCc+G/Gz50E3f3FsbGosC0gju8uxyOuHGwoD2kjZ1uJnnMf/U5/LaWfpDpVAW3niY0/PNwvu4wRVUZ4nDYmK2JnRHsyCH8VBIiosZBOQYJt8ZwbkTc0ncWlALnFAmlAWXHha5MwLYe2z/Nox4/5I6Rf6QMPxaEK5DB0O2Zs9OXYzfkvwLnSOIkSjE5eHD5CFgACtecjHi8u1CeYbYcdWJeQzuYWb/Ujo92GZeBQiC7Jhj8kdep4rEhJT8JxjuUMJbj5/xw6hCzK8dHCHnOEIpYu4pmc8MXsREiTk5HvYvp5M4819H4lISKhATx9QoaRos+Z87fFgHPX5YJWI+D7i8Mn3MCSGcfbamIjF3NMdzIlViO0NMKPnHdox30/uX0yk+U8NE7Fs8PPiJSFeamOCLxpXMJU1CoXNWDWU/DGwwXTKxd4mQDH6VdcLqxMTxf3BakPmyt7+UTnSBWahqabCL8tIjKE1MURiJsfi7+ovh1R03cgP6t3zSXJxGBGR1WF6Y47mYSSBnX9G5MYpufzmdYvJHF2IiBR/ONH+5SxMTV17al8yW1yYvDdm3asSQa2gNq/1Zj6OduFiwZHntYvIXq//baIteI3U5riboszWvqMJL+Y76rkNW6tK3pX1xst6AkWkIH85O719KJ1Eut7p0bobPxWnUKki7T6nKWn1oH6hxKhwmPPYkYwdIfer0ozhpHavosXpdigqBqsQwBBc6+oLo5ej0MZwt4BS+WuZsUYh0FN7M2dMxhtvURHbIcWw+cfHC81HUQ3UpB5wxO2yYhwrJSWRH0f5ldKI1osFkctpxpsFcV2Elez7CI8T8ajw4L7gwRIcsRkeG+sGBe/IMOSaFkHoNl5PvXvoIRWPnHrA1iT4jxt0c5n5f/F6JRntrCPPSLqjKQsynQ36hYllpnZw8ncPm++edHGFFnRh8Kij2FFHBsl8yCj0AC/OChJUmpiRCXo/nY25l+MUNLEecaKnasQszMeGenMd0e2LSfZIdVXV6Ip6FmN8Cn7podou71GXnHBHAeR/li/Z7h+7uC+EFdaovMQT/TBOJNuoxeI7bV5dNYHvLgLtCCfoceCmdak0MQ3ht87i87MilNfS2qaGdzVNVzEviJXSqPTH/VzTE1BQNMTVFQ0xN0RBTSwD/AEiCITRGl100AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/new" CvElementArea="53, 917, 139, 47" CvTextArea="87, 930, 70, 19" CvTextArgument="Submit" CvType="Button" DesignTimeRectangle="56, 920, 135, 42" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Submit'" FullSelectorArgument="&lt;webctrl aaname='Submit' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Submit' tag='BUTTON' type='button' class='zd_button_tag zd-button-bold zd266b1e491d zd-button-primaryfilled zd-button-medium zd-button-container zd-button-native zd-button-varClass zd4af66c9aeb' check:innerText='Submit' /&gt;" Guid="72cf3765-11c7-469b-9ec8-c8d31b1b86bf" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAuCAYAAAAYyOqiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQ1SURBVHhe7ZxNSxtBGMd79tTP4TeQfgKPHnvzK4hQPHoTTyYn8SB41EOpvQUvRkQIIkWQ0kigEUFUrHGNSTbm7ek8u/tMZpLRjYY0W/L/w09xdnYTnd/Om2E/EIIMGMiCDBzIggwcpyxr+zX6tPZAH7/c0dQimBS4vbnduf1dsWT5/acVVHZdCEwW7AH7YMaSBaIAE/bBjJaFux7XCWCyMYckLQt6FeDC7F20LJjMAhfshUTL4qoIACOBLCAWCWQBsUggC4hFAllALBLIAmKRQBYQi2QiZdm6DX9nr1BxHgc2koTKUqL5g2fKVzrRu1Npdujmsk4LKVf9tzFOWZZ+tYPX9q99mjXKZ7artHvdodMju34SkCRQlhItFWxJ/Lr5c4u2Nl3nDc74ZPFoR/725Wea1+UVykb/gskfm/WTgSR5smzUqRi8ow7lT8o0LeWpKmW8SJpb+658K2MdhlJPtJrze3pIyPI+ctFnKGoNWuo9tllXQ1OLModPNCNl3xvkBSeoHses+8oxU5be4c7n6x8Ykgb4lA+Odii7X6PsvV1/52tJ1XmkdKFFXjjKELU7VCzUaM66joNj+zMjOuqGcNYfA5LkyqIaeHeQ4WYIWaimhrjge5vy1y0qVoJSFTU/OjN7HZFFydFUX5QIPDT6WowW5e8igXjY5DpRvHO799JDrMiQUbKq1xbJfE9dS/2cP6ta540TSfJkWek2DNValM1V6fM637mOuswwsqh4hWq3l7LmS6rH2JBy4z1VGrQsQ8imKtdiqGHz+LH/Ou0mpfX1HbIEYBh6N3OHzaiRjai72btv0u5ezxAxjCz1Ji0b5SFVytXDw8VTLyrrynJ6aIu7ehE1vjVhVWw867lX9lu3HLKMAp4InjToVM0PzG6dw8tOPRcYQhb/wt3VawGu5NODIotq+O92XXfjM+5zIMs/YHq9QluXMknoUG4vOjaELC+thvobFLJwkilLyqPZFUe5WnHshq2vJo5PYRl6lpEjSZgsD5SOGsp915f0ptbNz3JYZgix0yvYgYxfblmcy/PFJ8qUw8P9cxbIEsRVaRzM/pClsxpq9mV1ETKTETHalNmWcmkUblyj/opqAL0UfkEWFZayO2Eu0fxJK1xOs3x9q6HRy9IVNDlIEjgMPdLWdfQH5VTCfYeisXF2c243sB42VGSfIti3aEr5C7LIcb3PIvXNZTAzalnuKH0ZlfNmnnovNxe91xsfkoROcB9oIdew/5HIS2dPLZ0zdm8T0r976t0+07LuidyycK+ycGS/TuwO7ohkmdq0d4bpCrKA/xAJZAGxSCALiEUCWUAsEsgCYpFAFhCLBLKAWCSQBcQi0bLgkRvAhfORG3iYD3DhfJgPHhMGXDgfE8ZB7wJMzF6FY8mCR5sCgT149dGmEu56uDImvZMFtze3uzn0mHHKgiD9IfoL0ccfPf0qeJwAAAAASUVORK5CYII=" InformativeScreenshot="a9fb6119c78c89f0e15b979a9a07a4cf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(3) Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvElementArea="205, 917, 140, 48" CvTextArea="241, 931, 67, 18" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="209, 920, 135, 42" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;webctrl aaname='Cancel' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Cancel' tag='BUTTON' type='button' class='zd_button_tag zd-button-bold zd266b1e491d zd-button-secondary zd-button-medium zd-button-container zd-button-native zd-button-varClass zd4af66c9aeb' check:innerText='Cancel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAuCAYAAAAYyOqiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAATdSURBVHhe7ZzRaxpJHMfv7/TFgoaAWERphZ7Q+KAPyUOuUEUQQYQgxIeGcJcHU8qVFhOIAXOQCJE24Yj00jQkCt1eK2e+N7/dmXXcrN52zUNz/j4wD5kdZzf7+2TmNxOZn8AwHmFZGM+wLIxnXGW5vP6M991LtE/OcfT+Ly5zUijeFHeKvxtjsnwb/GM27n68hvH3N9zc3MgrzDxA8aa4U/zJA/JBZ0wW06qeu1XMfEEekA86tiw09JBRDKMgH/QpyZaFLKIhiGEU5IM+utiyUHLDOQqjQz6QFwpbFsqGGcaJ7gXLwkyFZWE8w7IwnmFZGM+wLIxnWBbGMyzLj8hwgItGDSvxKg5l1Y/A/ZJlcInWegHZWALBBw8RECUYzWClsoNuT7b5P/ChjiXz9yuxLH4wOhvILliCBB4kEImnEBMloupCKfzycrTDeK9hWWagK15eyJIislzHqT6KDPs43XyOiPlykyjvf5EX7jEsi1/Osf3EEiX4tI6Loax2cLG5bE1N8Q10ZR1hdF6hmE4hLGULRpdRrJ/AkNcVF5sZ83og34TRriP3SE11YhRLV9H6JBs6+dhELZse9b+YFtNiExcDeV2HxK6XRtPoQhLZ/Ktx+QmWxSfvNhAzX1wSa3/IOjeGJ2i9PoOhyWTsl+SIk8DjbAnl56uIqRGqfCxbWdiyRJPmZ4JRa5pTEgSiVXQcot7qv1jA0qJqLwKtGzkU0j+1rgUXM8gVK8ilpDTOtiyLP+wghirf+eLOsBGnFy6mpt2+rBMI+R6bgShg76usE9j3Ee1zb7Uv+vSaKEao/qGo14aLqzdYMUVyTH3DS+w9S5rtw/kDqE+o/p2jY7eattqWjmSNgGXxx2HeClTgiXjJss4zNOw3jjD+Na5jrMngl1uySmDL4nKfbjVlBVQbjezgP2vaQthcHWC7foxr+4K6Zwq1jqxSfN1Bju4bEmIoiVgWf8wkiyujHKi8L6sEtixiNHBy+9oAe6tWHysvtVFrEir4rqPjObaS1FcG2x9kFcviDztQ3z0NEbS5tYGcSHBj0YTVj1b8y+Iu3EREbqPuOa3YfbEsPjmsImy+uP9IcNFHo1hF4536S++Lv34rdwjGVrG2uYPWblMUsToyc5lZZBH3ylp9jOUxk1CyxEv43XwG93J6JduzLD4Zivk+agVm2tLZ2C1ZUkXkqkWtotTPNncxDYk8Zt0lMVUYIg+JF7DVkolyTyTD9Hk9L5kGy+Kf0RLVbVNOTDWvS3JJrK1MWhW571LDqRYgo1OTgZhNllFAMyJp1VdDfbTy1og2Wp5/sXOcpRdnsk7y569YWkhgKf8GXTVIsSyzcf1WCWGVcMyx3S9EGdvu10ek+CqKtK+RTpoCBWU/M8kisDcCXfZZgjGRY+l7J8YByo7nKWZT9uezv2nPzrLcAb0zNCqr+DluBd188dGUuQvauXLJHT6N766GHxWw3T7G1h1MQwqjTTvE+vMsI7c+YQeX/hFKz6+S7VACsbTIY9qOFRXLwtx3WBbGMywL4xmWhfEMy8J4hmVhPMOyMJ5hWRjPuMrCR24wTiYeucGH+TBOJh7mw8eEMU4mHhNGkEV8ACFDTD2AkOCjTecbijfFneJPHkw92lRBQw81puSGsmEu81Eo3ubsok09Oq6yMMxtgH8BgXfa2MnegQEAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <ui:UiElementExists DisplayName="Element Exists 'BUTTON'" Exists="[Succesful]" sap:VirtualizedContainerService.HintSize="486.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06bc3e86-17fa-4744-872c-bfcc04985029" InformativeScreenshot="3705b75bbf3e82b92e3f803647a7aef3" Selector="&lt;webctrl aaname='Close Ticket' tag='BUTTON' type='button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:UiElementExists.Target>
+              </ui:UiElementExists>
+              <If Condition="[Succesful]" sap:VirtualizedContainerService.HintSize="486.6666666666667,780" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,234.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot; Ticket was created in Zoho desk &quot;]" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,361.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Ticket NOT created&quot;]" />
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Ticket was created in Zoho desk &quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Tickets'" sap:VirtualizedContainerService.HintSize="486.6666666666667,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6cadf5eb-de85-4eda-aabd-21ea29e8d1b4" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/details/878804000000310001" CvTextArgument="Tickets" CvType="Text" DesignTimeRectangle="122, 149, 76, 26" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Tickets'" FullSelectorArgument="&lt;webctrl aaname='Tickets' parentid='react' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Tickets' parentid='react' tag='DIV' type='' class='zd-tab-tabText zd4af66c9aeb zd050393fdda zdeb439ba1e6 zd577c9fa95f' check:innerText='Tickets' /&gt;" Guid="3f4e9b0b-5986-4c31-801e-f2e7a8b46e0c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAeCAYAAAC7Q5mxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPnSURBVGhD7ZhPaxpBGMb7hXrrh/AU8OCxhyJCsZd4yqGhIYeQgEsgaQ+SQBoSQqRBhMBCiAdRiEQsqDl0CbgIKqIICmJAIfB0ZnfWndndqMm6IaU78Fzmfeffb2fmfWffvf+wAl8vlw/QpXyALuUDdCkfoEv5AF3KB+hSJsDLJhYvE1QOxY6Wot0qhrT7BwUHTvY3KBNgogC11hTUe9BoAYOOxaZC3tXbbWT7uk8jh7DR10v1TwN0UKquocH47pejnUq6HelOgyqkoLPPwnoVgBFsXVShDkdLOUWuAVKFYtsIu4VH9SoAj1DUBlnONbQUgEvTfwnQCD7tguMdGIpfo1gfYfyou9EyHjSRP5MQsPo/CXCTzGWit20UsPWRt9ExclC67Cqh5XGCYVvB+U5E8JNKnA9fLOMFvqZRbHNznoygygmEOB9DngKMEttYt2Lc1QNQa6CDoGV8LyPKt3EESODVnoIXgZTvzxiD7jIT4lpaIfYOhgzMsMGC4p8cJKPPWA4tw96mdtOfrlGYL5F3AA0YIJe1ZbeFEr/RY2vsZTftbaYACSC2a8bdKo5jZh9UgT3mP+kgn+D6IYqeKMym4pirn3eED+70ibWyCXPOQQkyOwGtq23B3yOA65AbevWwdGQ/qkSBpKod5aJ8an5VAaAJDwPFBo8fo5X5brFRRXB+r9vVS75+NsBUTWsCJWmxBdcR/SxeCVQeAbyGqlX2kd/kfOdpClBFSmbH3xEeFTfGroS1b3ZtZDuahzj/2QDDV3obPPahpE8Rc4DGyxuAjnfZApoee6OMUIw/sQCb74wifNx5UXgV+zcdIehpQaleRSq+avN/mwAfmqiwO4f2a724rb55OQd5li6OngGQiRzZ2A8ZmRL3IiNFTYsf1OMj3EHmC+craBXRmOWL8uCDZKEDrRNtfPs9aozRRMpmm6UFAQoiu7LM7uOu+EE9DyK9G6cLngSRMxJEqEM7h5hRb925MQKJbcRh2QqRCyKy8zGPJgvI/Pxuyd9mACS7TqKpTikt1lNxc9vn6j0CyAGiacyJuNNC8QJaGpgJSQs4wFaARIEdw5dGWzFVCRwqbAwSSCxJ8zSNIWMoSb5dYrqz7eBPUdGOK2kjzDmCNRaQUL8W1ukZQC2Hu2V/amgZ9vWktctokNIrpxdIpAkoI9/Tdg2/aDGRnv41mjUG0X7ZsE/Qq9PEm1wDn3SbORYprL8WA44J+VB7r3IHGoogvOfwzOqqyBw+5ynHv2roXxRxEfQpV+GfXmyM/AmXDPMKJiDX+KdaEzJ3Vwd29DkL/b0kCvuaLx+gS/kAXcoH6FI+QJfyAbrSCv4COj16jh5ZX2EAAAAASUVORK5CYII=" InformativeScreenshot="2872b4c3bdc0b2341706f4efc203d167.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='(4) #107 - Sarah Gumbe' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CvTextArgument="Knowledge Base" CvType="Text" DesignTimeRectangle="237, 149, 177, 26" ElementType="Text" FriendlyName="'Knowledge Base'" FullSelectorArgument="&lt;webctrl aaname='Knowledge Base' parentid='react' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Knowledge Base' parentid='react' tag='DIV' type='' class='zd-tab-tabText zd4af66c9aeb zd050393fdda zdeb439ba1e6 zd577c9fa95f' check:innerText='Knowledge Base' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="1b373c0519a5264321354a03029be0d6.jpg" Selector="&lt;html app='chrome.exe' title='(1) Sarah Gumbe' /&gt;" Title="Sarah Gumbe" Url="https://desk.zoho.com/agent/sarahgumbe/sarah-gumbe/tickets/list/all-cases" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
