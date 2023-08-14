@@ -25,9 +25,9 @@ The effort invested in this project has provided a strong foundational understan
 
 ## Repository Structure
 
-- [Main.xaml](link-to-main-xaml): The main workflow orchestrating the automation process.
-- [ReadRequest.xaml](link-to-readrequest-xaml): Workflow for reading and processing request data.
-- [SaaSAutomation.xaml](link-to-saasautomation-xaml): Workflow for automating interactions with Zoho Desk.
+- https://github.com/sarahgumbe/RPA/blob/master/Main.xaml: The main workflow orchestrating the automation process.
+- https://github.com/sarahgumbe/RPA/blob/master/ReadRequest.xaml: Workflow for reading and processing request data.
+- https://github.com/sarahgumbe/RPA/blob/master/SaaSAutomation.xaml: Workflow for automating interactions with Zoho Desk.
 
 ## Contributions
 
