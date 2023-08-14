@@ -39,7 +39,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or feedback, feel free to contact us at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or feedback, feel free to contact us at gumbe12@gmail.com.
 
 Thank you for being part of this automation journey!
 
